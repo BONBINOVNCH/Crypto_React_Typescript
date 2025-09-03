@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const keys = import.meta.env.VITE_API_KEYS;
 
-function useGetData<T>(url: string): unknown {
+function useGetData<T>(url: string): T | null {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState<null | T>(null);
     const effectRun = useRef(true);
@@ -28,7 +28,7 @@ function useGetData<T>(url: string): unknown {
                         throw new Error("Щось не так");
                     }
 
-                    const json: T = await response.json();
+                    const json = await response.json();
                     setData(json);
                 } catch (err) {
                     console.log(err);
