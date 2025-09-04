@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+.toppers_block {
+    display: flex;
+    margin-top: 20px;
+}

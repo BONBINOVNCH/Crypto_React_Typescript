@@ -21,7 +21,15 @@ function Toppers() {
             <div className="toppers_block">
                 <div className="topper">
                     <img src={data[0].image} alt="" className="topper_img" />
-                    <h5 className="topper_name"></h5>
+                    <h5 className="topper_name">{data[0].name}</h5>
+                </div>
+                <div className="topper">
+                    <img src={data[1].image} alt="" className="topper_img" />
+                    <h5 className="topper_name">{data[1].name}</h5>
+                </div>
+                <div className="topper">
+                    <img src={data[2].image} alt="" className="topper_img" />
+                    <h5 className="topper_name">{data[2].name}</h5>
                 </div>
             </div>
         );

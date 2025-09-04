@@ -11,7 +11,7 @@ function App() {
                     <section className="main_toppers">
                         <Toppers></Toppers>
                     </section>
-                    <section></section>
+                    <section className="main_dashbord_block"></section>
                 </div>
                 <div className="main_right"></div>
             </main>
