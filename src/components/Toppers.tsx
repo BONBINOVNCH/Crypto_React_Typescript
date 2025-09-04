@@ -15,9 +15,6 @@ function Toppers() {
     );
 
     if (data) {
-        console.log(data);
-        console.log(data[0]);
-
         return (
             <div className="toppers_block">
                 <div className="topper">

@@ -1,4 +1,4 @@
-import { ChartAreaDefault } from "./components/ChartAreaDefault";
+import { ChartAreaInteractive } from "./components/ChartAreaInteractive";
 import Header from "./components/Header";
 import Toppers from "./components/Toppers";
 import "./index.css";
@@ -13,7 +13,7 @@ function App() {
                         <Toppers></Toppers>
                     </section>
                     <section className="main_dashbord_block">
-                        <ChartAreaDefault />
+                        <ChartAreaInteractive />
                     </section>
                 </div>
                 <div className="main_right"></div>
