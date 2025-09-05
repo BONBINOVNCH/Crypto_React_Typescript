@@ -1,20 +1,11 @@
-import useGetData from "@/hooks/useGetData";
+// import useGetData from "@/hooks/useGetData";
 import React from "react";
+import useDataCoins from "@/data/useDataCoins";
 
 function Toppers() {
-    interface Coin {
-        id: string;
-        name: string;
-        image: string;
-        current_price: number;
-        price_change_percentage_24h: number;
-    }
-
-    const data = useGetData<Coin[]>(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=current_price_desc&per_page=3&page=1&sparkline=false"
-    );
-
+    const data = useDataCoins();
     if (data) {
+        console.log(data);
         return (
             <div className="toppers_block">
                 <div className="topper">

@@ -1,6 +1,7 @@
 import { ChartAreaInteractive } from "./components/ChartAreaInteractive";
 import Header from "./components/Header";
 import Toppers from "./components/Toppers";
+
 import "./index.css";
 
 function App() {
