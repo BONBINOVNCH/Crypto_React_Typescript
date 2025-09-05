@@ -3,6 +3,7 @@ import * as React from "react";
 
 import { useStore } from "@/store";
 import useDataCoinHistory from "@/hooks/useDataCoinHistory";
+import { useMemo } from "react";
 
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -130,15 +131,21 @@ export function ChartAreaInteractive() {
 
     const [timeRange, setTimeRange] = React.useState("90d");
 
+    const getData = useMemo(() => {
+        if (history) {
+            return history.prices.map((item) => ({
+                date: new Date(item[0]).toISOString().split("T")[0],
+                desktop: item[1],
+            }));
+        }
+    }, [history]);
+
     if (history) {
-        const chartData = history.prices.map((item) => ({
-            date: new Date(item[0]).toISOString().split("T")[0],
-            desktop: item[1],
-        }));
+        const chartData = getData;
 
         console.log(chartData);
 
-        const filteredData = chartData.filter((item) => {
+        const filteredData = chartData!.filter((item) => {
             const date = new Date(item.date);
             const referenceDate = new Date(
                 new Date().toISOString().split("T")[0]
