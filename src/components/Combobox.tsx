@@ -2,6 +2,9 @@
 
 import * as React from "react";
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-react";
+
+import { useEffect } from "react";
+
 import { useStore } from "../store";
 
 import useDataCoins from "@/data/useDataCoins";
@@ -38,12 +41,14 @@ export function Combobox() {
 
     const data = useDataCoins();
 
-    if (data) {
-        if (value) {
+    useEffect(() => {
+        if (data && value) {
             setCoin(data.find((item) => item.id == value));
             console.log(coin);
         }
+    }, [data, value, setCoin]);
 
+    if (data) {
         const newData: NewCoin[] = data!.map((coin) => ({
             value: coin.id,
             label: coin.name,
