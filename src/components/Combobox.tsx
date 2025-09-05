@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { CheckIcon, ChevronsUpDownIcon } from "lucide-react";
+import { useStore } from "../store";
 
 import useDataCoins from "@/data/useDataCoins";
 
@@ -24,6 +25,11 @@ import {
 export function Combobox() {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState("");
+
+    const coin = useStore((store) => store.coin);
+    const setCoin = useStore((store) => store.setCoin);
+    setCoin(value);
+    console.log(coin);
 
     type NewCoin = {
         value: string;

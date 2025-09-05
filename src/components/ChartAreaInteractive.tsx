@@ -1,5 +1,8 @@
 "use client";
 import * as React from "react";
+
+import { useStore } from "@/store";
+
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import {
@@ -119,6 +122,9 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 export function ChartAreaInteractive() {
+    const coin = useStore((state) => state.coin);
+    chartConfig.desktop.label = coin;
+
     const [timeRange, setTimeRange] = React.useState("90d");
     const filteredData = chartData.filter((item) => {
         const date = new Date(item.date);

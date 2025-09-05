@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
 type Store = {
-    count: number;
-    inc: () => void;
+    coin: string;
+    setCoin: (coin: string) => void;
 };
 
 export const useStore = create<Store>()((set) => ({
-    count: 1,
-    inc: () => set((state) => ({ count: state.count + 1 })),
+    coin: "",
+    setCoin: (coin: string) => set({ coin }),
 }));
