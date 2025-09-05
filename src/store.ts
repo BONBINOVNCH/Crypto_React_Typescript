@@ -1,11 +1,20 @@
 import { create } from "zustand";
 
-type Store = {
-    coin: string;
-    setCoin: (coin: string) => void;
+type Coin = {
+    id: string;
+    name: string;
+    image: string;
+    current_price: number;
+    price_change_percentage_24h: number;
+    // додай інші поля, якщо потрібно
 };
 
-export const useStore = create<Store>()((set) => ({
-    coin: "",
-    setCoin: (coin: string) => set({ coin }),
+type Store<T> = {
+    coin: T | undefined;
+    setCoin: (coin: T | undefined) => void;
+};
+
+export const useStore = create<Store<Coin>>()((set) => ({
+    coin: undefined,
+    setCoin: (coin) => set({ coin }),
 }));

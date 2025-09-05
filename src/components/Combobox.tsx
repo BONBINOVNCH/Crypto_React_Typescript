@@ -28,8 +28,8 @@ export function Combobox() {
 
     const coin = useStore((store) => store.coin);
     const setCoin = useStore((store) => store.setCoin);
-    setCoin(value);
-    console.log(coin);
+    // setCoin(value);
+    // console.log(coin);
 
     type NewCoin = {
         value: string;
@@ -39,6 +39,11 @@ export function Combobox() {
     const data = useDataCoins();
 
     if (data) {
+        if (value) {
+            setCoin(data.find((item) => item.id == value));
+            console.log(coin);
+        }
+
         const newData: NewCoin[] = data!.map((coin) => ({
             value: coin.id,
             label: coin.name,

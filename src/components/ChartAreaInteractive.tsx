@@ -123,7 +123,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 export function ChartAreaInteractive() {
     const coin = useStore((state) => state.coin);
-    chartConfig.desktop.label = coin;
+    chartConfig.desktop.label = coin?.name ?? "bit";
 
     const [timeRange, setTimeRange] = React.useState("90d");
     const filteredData = chartData.filter((item) => {
