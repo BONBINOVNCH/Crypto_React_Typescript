@@ -25,7 +25,7 @@ export function Combobox() {
     const [open, setOpen] = React.useState(false);
     const [value, setValue] = React.useState("");
 
-    type NewCoins = {
+    type NewCoin = {
         value: string;
         label: string;
     };
@@ -33,7 +33,7 @@ export function Combobox() {
     const data = useDataCoins();
 
     if (data) {
-        const newData: NewCoins[] = data!.map((coin) => ({
+        const newData: NewCoin[] = data!.map((coin) => ({
             value: coin.id,
             label: coin.name,
         }));
