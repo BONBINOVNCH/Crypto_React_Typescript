@@ -66,7 +66,7 @@ export function Combobox() {
                         {value
                             ? newData.find((coin) => coin.value === value)
                                   ?.label
-                            : "Select coin..."}
+                            : "Bitcoin"}
                         <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                 </PopoverTrigger>

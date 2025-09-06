@@ -125,7 +125,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 export function ChartAreaInteractive() {
     const coin = useStore((state) => state.coin);
-    chartConfig.desktop.label = coin?.name ?? "bit";
+    chartConfig.desktop.label = coin?.name ?? "Bitcoin";
 
     const history = useDataCoinHistory();
 
