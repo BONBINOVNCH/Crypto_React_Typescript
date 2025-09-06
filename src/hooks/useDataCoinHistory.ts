@@ -19,7 +19,6 @@ export default function useDataCoinHistory() {
     console.log(url);
     const data = useGetData<PriceHistory>(url);
     if (data) {
-        console.log(data);
         return data;
     }
 }

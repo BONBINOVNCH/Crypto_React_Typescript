@@ -131,7 +131,12 @@ export function ChartAreaInteractive() {
 
     const [timeRange, setTimeRange] = React.useState("90d");
 
-    const getData = useMemo(() => {
+    type Getdata = {
+        date: string;
+        desktop: never;
+    };
+
+    const getData: Getdata[] | undefined = useMemo(() => {
         if (history) {
             return history.prices.map((item) => ({
                 date: new Date(item[0]).toISOString().split("T")[0],
@@ -142,8 +147,6 @@ export function ChartAreaInteractive() {
 
     if (history) {
         const chartData = getData;
-
-        console.log(chartData);
 
         const filteredData = chartData!.filter((item) => {
             const date = new Date(item.date);
@@ -161,8 +164,6 @@ export function ChartAreaInteractive() {
             startDate.setDate(startDate.getDate() - daysToSubtract);
             return date >= startDate;
         });
-
-        console.log(filteredData);
 
         return (
             <Card className="pt-0">
