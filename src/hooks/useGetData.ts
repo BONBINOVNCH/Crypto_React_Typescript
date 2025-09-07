@@ -39,7 +39,6 @@ function useGetData<T>(url: string): T | null {
         getData();
     }, [url]);
 
-    console.log(data);
     return data;
 }
 

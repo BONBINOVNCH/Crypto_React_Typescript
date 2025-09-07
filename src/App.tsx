@@ -1,4 +1,5 @@
 import { ChartAreaInteractive } from "./components/ChartAreaInteractive";
+import DemoPage from "./components/crypto-dialog/page";
 import Header from "./components/Header";
 import TableCom from "./components/TableCom";
 import Toppers from "./components/Toppers";
@@ -22,6 +23,8 @@ function App() {
                     </section>
                 </div>
                 <div className="main_right"></div>
+
+                <DemoPage />
             </main>
         </>
     );
