@@ -5,8 +5,8 @@ export default function useDataCoins() {
         id: string;
         name: string;
         image: string;
-        volume: number;
-        marketRank: number;
+        total_volume: number;
+        market_cap_rank: number;
         marketCap: number;
         highIn24: number;
         lowIn24: number;
