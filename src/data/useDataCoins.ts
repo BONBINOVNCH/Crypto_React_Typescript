@@ -7,9 +7,9 @@ export default function useDataCoins() {
         image: string;
         total_volume: number;
         market_cap_rank: number;
-        marketCap: number;
-        highIn24: number;
-        lowIn24: number;
+        market_cap: number;
+        high_24h: number;
+        low_24h: number;
         current_price: number;
         price_change_percentage_24h: number;
     }
