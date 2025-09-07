@@ -20,21 +20,27 @@ export default function TableCom(): React.JSX.Element | undefined {
                 <TableCaption>A list of your recent invoices.</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead className="w-[100px]">Invoice</TableHead>
-                        <TableHead>Status</TableHead>
-                        <TableHead>Method</TableHead>
-                        <TableHead className="text-right">Amount</TableHead>
+                        <TableHead className="w-[100px]">Image</TableHead>
+                        <TableHead>Name</TableHead>
+                        <TableHead>Changes</TableHead>
+                        <TableHead className="text-right">Price</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
-                    <TableRow>
-                        <TableCell className="font-medium">
-                            {data[0].image}
-                        </TableCell>
-                        <TableCell>Paid</TableCell>
-                        <TableCell>Credit Card</TableCell>
-                        <TableCell className="text-right">$250.00</TableCell>
-                    </TableRow>
+                    {data.slice(0, 5).map((coin) => (
+                        <TableRow key={coin.id}>
+                            <TableCell className="font-medium">
+                                <img src={coin.image} alt="" />
+                            </TableCell>
+                            <TableCell>{coin.name}</TableCell>
+                            <TableCell>
+                                {coin.price_change_percentage_24h}%
+                            </TableCell>
+                            <TableCell className="text-right">
+                                {coin.current_price}$
+                            </TableCell>
+                        </TableRow>
+                    ))}
                 </TableBody>
             </Table>
         );

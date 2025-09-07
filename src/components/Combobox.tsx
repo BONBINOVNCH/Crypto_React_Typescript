@@ -27,7 +27,7 @@ import {
 
 export function Combobox() {
     const [open, setOpen] = React.useState(false);
-    const [value, setValue] = React.useState("");
+    const [value, setValue] = React.useState("bitcoin");
 
     const coin = useStore((store) => store.coin);
     const setCoin = useStore((store) => store.setCoin);
