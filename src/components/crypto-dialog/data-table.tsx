@@ -1,11 +1,14 @@
 "use client";
 
+import * as React from "react";
 import {
     ColumnDef,
+    SortingState,
     flexRender,
     getCoreRowModel,
-    useReactTable,
     getPaginationRowModel,
+    getSortedRowModel,
+    useReactTable,
 } from "@tanstack/react-table";
 
 import {
@@ -28,11 +31,18 @@ export function DataTable<TData, TValue>({
     columns,
     data,
 }: DataTableProps<TData, TValue>) {
+    const [sorting, setSorting] = React.useState<SortingState>([]);
+
     const table = useReactTable({
         data,
         columns,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
+        onSortingChange: setSorting,
+        getSortedRowModel: getSortedRowModel(),
+        state: {
+            sorting,
+        },
     });
 
     return (
@@ -91,24 +101,6 @@ export function DataTable<TData, TValue>({
                 </Table>
             </div>
 
-            {/* <div className="flex items-center justify-end space-x-2 py-4">
-                <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => table.previousPage()}
-                    disabled={!table.getCanPreviousPage()}
-                >
-                    Previous
-                </Button>
-                <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => table.nextPage()}
-                    disabled={!table.getCanNextPage()}
-                >
-                    Next
-                </Button>
-            </div> */}
             <DataTablePagination table={table} />
         </div>
     );
