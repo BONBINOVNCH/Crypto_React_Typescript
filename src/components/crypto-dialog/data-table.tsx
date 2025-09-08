@@ -1,6 +1,10 @@
 "use client";
 
 import * as React from "react";
+
+import { useStore } from "@/store";
+import { useEffect } from "react";
+
 import {
     ColumnDef,
     ColumnFiltersState,
@@ -54,20 +58,22 @@ export function DataTable<TData, TValue>({
         },
     });
 
+    const inputCoin = useStore((state) => state.inputCoin);
+    const setInputCoin = useStore((state) => state.setInputCoin);
+
+    useEffect(() => {
+        table.getColumn("name")?.setFilterValue(inputCoin);
+    }, [inputCoin]);
+
     return (
         <div>
             <div className="flex items-center py-4">
                 <Input
                     placeholder="Filter crypto..."
-                    value={
-                        (table.getColumn("name")?.getFilterValue() as string) ??
-                        ""
-                    }
-                    onChange={(event) =>
-                        table
-                            .getColumn("name")
-                            ?.setFilterValue(event.target.value)
-                    }
+                    value={inputCoin}
+                    onChange={(event) => {
+                        setInputCoin(event.target.value);
+                    }}
                     className="max-w-sm"
                 />
             </div>

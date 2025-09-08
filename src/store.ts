@@ -12,9 +12,15 @@ type Coin = {
 type Store<T> = {
     coin: T | undefined;
     setCoin: (coin: T | undefined) => void;
+
+    inputCoin: string;
+    setInputCoin: (coin: string) => void;
 };
 
 export const useStore = create<Store<Coin>>()((set) => ({
     coin: undefined,
     setCoin: (coin) => set({ coin }),
+
+    inputCoin: "",
+    setInputCoin: (inputCoin) => set({ inputCoin }),
 }));
