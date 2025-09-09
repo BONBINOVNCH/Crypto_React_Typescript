@@ -74,6 +74,9 @@ function LiveSearch({
                             <h2>{coin.name}</h2>
                         </div>
                     ))}
+                    <button onClick={() => setOpen(true)}>
+                        see all +{filterData.length}
+                    </button>
                 </>
             ) : (
                 "nothing "
