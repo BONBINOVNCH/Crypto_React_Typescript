@@ -60,14 +60,15 @@ export function DataTable<TData, TValue>({
 
     const inputCoin = useStore((state) => state.inputCoin);
     const setInputCoin = useStore((state) => state.setInputCoin);
+    const setOpen = useStore((state) => state.setOpen);
 
     useEffect(() => {
         table.getColumn("name")?.setFilterValue(inputCoin);
     }, [inputCoin]);
 
     return (
-        <div>
-            <div className="flex items-center py-4">
+        <div className="max-h-[100vh] overflow-y-hidden">
+            <div className="flex  justify-between items-center ">
                 <Input
                     placeholder="Filter crypto..."
                     value={inputCoin}
@@ -76,9 +77,16 @@ export function DataTable<TData, TValue>({
                     }}
                     className="max-w-sm"
                 />
+
+                <img
+                    onClick={() => setOpen(false)}
+                    className="cross h-11"
+                    src=".\img\cross.png"
+                    alt=""
+                />
             </div>
 
-            <div className="overflow-hidden rounded-md border">
+            <div className="overflow-hidden rounded-md border max-h-[80vh] overflow-y-auto rounded-md bg-white p-4">
                 <Table>
                     <TableHeader>
                         {table.getHeaderGroups().map((headerGroup) => (

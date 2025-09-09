@@ -8,9 +8,9 @@ import "./index.css";
 
 function App() {
     return (
-        <>
+        <div className="wrap relative">
             <Header />
-            <main className="main">
+            <main className="main ">
                 <div className="main_left">
                     <section className="main_toppers">
                         <Toppers></Toppers>
@@ -26,7 +26,7 @@ function App() {
 
                 <DemoPage />
             </main>
-        </>
+        </div>
     );
 }
 

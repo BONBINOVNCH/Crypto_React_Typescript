@@ -15,6 +15,9 @@ type Store<T> = {
 
     inputCoin: string;
     setInputCoin: (coin: string) => void;
+
+    open: boolean;
+    setOpen: (open: boolean) => void;
 };
 
 export const useStore = create<Store<Coin>>()((set) => ({
@@ -23,4 +26,7 @@ export const useStore = create<Store<Coin>>()((set) => ({
 
     inputCoin: "",
     setInputCoin: (inputCoin) => set({ inputCoin }),
+
+    open: false,
+    setOpen: (open) => set({ open }),
 }));
