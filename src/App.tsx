@@ -1,6 +1,8 @@
 import { ChartAreaInteractive } from "./components/ChartAreaInteractive";
 import DemoPage from "./components/crypto-dialog/page";
 import Header from "./components/Header";
+import MarketHighlight from "./components/MarketHighlight";
+import MarketOverview from "./components/MarketOverview";
 import TableCom from "./components/TableCom";
 import Toppers from "./components/Toppers";
 
@@ -10,7 +12,7 @@ function App() {
     return (
         <div className="wrap relative">
             <Header />
-            <main className="main ">
+            <main className="main flex flex-wrap">
                 <div className="main_left">
                     <section className="main_toppers">
                         <Toppers></Toppers>
@@ -22,7 +24,12 @@ function App() {
                         <TableCom />
                     </section>
                 </div>
-                <div className="main_right"></div>
+                <div className="main_right">
+                    <section className="main_marketOverview">
+                        <MarketOverview />
+                        <MarketHighlight />
+                    </section>
+                </div>
 
                 <DemoPage />
             </main>
