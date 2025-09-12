@@ -10,10 +10,10 @@ import "./index.css";
 
 function App() {
     return (
-        <div className="wrap relative">
+        <div className="wrap relative ">
             <Header />
-            <main className="main flex flex-wrap">
-                <div className="main_left">
+            <main className="main flex flex-wrap justify-between">
+                <div className="main_left ">
                     <section className="main_toppers">
                         <Toppers></Toppers>
                     </section>
@@ -24,8 +24,8 @@ function App() {
                         <TableCom />
                     </section>
                 </div>
-                <div className="main_right">
-                    <section className="main_marketOverview">
+                <div className="main_right flex-1">
+                    <section className="main_marketOverview ">
                         <MarketOverview />
                         <MarketHighlight />
                     </section>
