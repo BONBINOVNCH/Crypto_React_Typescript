@@ -28,7 +28,7 @@ export const description = "An interactive area chart";
 const chartConfig = {
     desktop: {
         label: "Desktop",
-        color: "var(--chart-1)",
+        color: "#fbbf24",
     },
 } satisfies ChartConfig;
 export function ChartAreaInteractive() {
@@ -75,26 +75,35 @@ export function ChartAreaInteractive() {
 
         return (
             <Card className="pt-0">
-                <CardHeader className="flex items-end flex-wrap-reverse gap-2 space-y-0 border-b py-5 sm:flex-row">
-                    <div className="grid flex ">
+                <CardHeader className="flex items-end flex-wrap-reverse gap-2 space-y-0 border-b border-[#3e3e3f] py-5 sm:flex-row">
+                    <div className="grid flex text-yellow-400 font-semibold">
                         <Combobox />
                         {coin?.current_price}$
                     </div>
                     <Select value={timeRange} onValueChange={setTimeRange}>
                         <SelectTrigger
-                            className=" w-[160px] rounded-lg sm:ml-auto sm:flex"
+                            className=" w-[160px] rounded-lg sm:ml-auto sm:flex bg-[#1d1e21] border border-[#3e3e3f] text-gray-200 focus:ring-2 focus:ring-yellow-400"
                             aria-label="Select a value"
                         >
                             <SelectValue placeholder="Last 3 months" />
                         </SelectTrigger>
-                        <SelectContent className="rounded-xl">
-                            <SelectItem value="90d" className="rounded-lg">
+                        <SelectContent className="rounded-xl bg-[#1d1e21] border border-[#3e3e3f] text-gray-200">
+                            <SelectItem
+                                value="90d"
+                                className="rounded-lg hover:bg-[#3e3e3f]"
+                            >
                                 Last 3 months
                             </SelectItem>
-                            <SelectItem value="30d" className="rounded-lg">
+                            <SelectItem
+                                value="30d"
+                                className="rounded-lg hover:bg-[#3e3e3f]"
+                            >
                                 Last 30 days
                             </SelectItem>
-                            <SelectItem value="7d" className="rounded-lg">
+                            <SelectItem
+                                value="7d"
+                                className="rounded-lg hover:bg-[#3e3e3f]"
+                            >
                                 Last 7 days
                             </SelectItem>
                         </SelectContent>
@@ -145,7 +154,7 @@ export function ChartAreaInteractive() {
                                     />
                                 </linearGradient>
                             </defs>
-                            <CartesianGrid vertical={false} />
+                            <CartesianGrid vertical={false} stroke="#3e3e3f" />
                             <XAxis
                                 dataKey="date"
                                 tickLine={false}
@@ -161,7 +170,7 @@ export function ChartAreaInteractive() {
                                 }}
                             />
                             <ChartTooltip
-                                cursor={false}
+                                cursor={{ stroke: "#fbbf24", strokeWidth: 1 }}
                                 content={
                                     <ChartTooltipContent
                                         labelFormatter={(value) => {
@@ -176,18 +185,12 @@ export function ChartAreaInteractive() {
                                     />
                                 }
                             />
-                            <Area
-                                dataKey="mobile"
-                                type="natural"
-                                fill="url(#fillMobile)"
-                                stroke="var(--color-mobile)"
-                                stackId="a"
-                            />
+
                             <Area
                                 dataKey="desktop"
                                 type="natural"
                                 fill="url(#fillDesktop)"
-                                stroke="var(--color-desktop)"
+                                stroke="#fbbf24"
                                 stackId="a"
                             />
                             <ChartLegend content={<ChartLegendContent />} />
