@@ -19,8 +19,8 @@ export default function MarketOverview() {
         return (
             <Card className="market">
                 <h1 className="market_title">Market Overview</h1>
-                <div className="market_flex_block flex">
-                    <Card className="market_block">
+                <div className="market_flex_block flex flex-wrap">
+                    <Card className="market_block ">
                         <span className="market_percent"></span>
                         <h2 className="market_title">
                             {Object.keys(total_market_cap!).reduce(
@@ -45,7 +45,7 @@ export default function MarketOverview() {
                     </Card>
                 </div>
 
-                <div className="market_flex_block flex">
+                <div className="market_flex_block flex flex-wrap">
                     <Card className="market_block">
                         <h2 className="market_title">
                             {active_cryptocurrencies}

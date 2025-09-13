@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useStore } from "@/store";
 import useDataCoins, { ExpandedCoin } from "@/data/useDataCoins";
@@ -28,7 +27,7 @@ function Header(): React.JSX.Element | undefined {
                     <nav className="search_blcok relative">
                         <div className="flex flex-wrap w-full max-w-sm items-center justify-end gap-2">
                             <Input
-                                className="sm:w-[58%] text-white w-[100%] rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition"
+                                className="sm:w-[100%] bg-[#3e3e3fff] text-white w-[100%] rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition"
                                 onChange={(
                                     e: React.ChangeEvent<HTMLInputElement>
                                 ) => setInputCoin(e.target.value)}
@@ -36,13 +35,6 @@ function Header(): React.JSX.Element | undefined {
                                 type="search"
                                 placeholder="Search crypto..."
                             />
-                            <Button
-                                className="rounded-lg border border-gray-300 text-white bg-[#3e3e3fff] shadow-sm hover:bg-yellow-500 hover:text-white transition"
-                                type="submit"
-                                variant="outline"
-                            >
-                                Search
-                            </Button>
                         </div>
 
                         {inputCoin.length > 0 && (
@@ -72,7 +64,7 @@ function LiveSearch({
     const setOpen = useStore((state) => state.setOpen);
     const open = useStore((state) => state.open);
     return (
-        <Card className="w-[100%] absolute mt-2 p-3 rounded-xl shadow-lg border border-gray-200 bg-[#3e3e3fff] ">
+        <Card className="w-[100%] absolute mt-2 rounded-xl shadow-lg border border-gray-200 bg-[#3e3e3fff] ">
             {filterData.length > 0 ? (
                 <>
                     {filterData.slice(0, 5).map((coin) => (
