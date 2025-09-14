@@ -87,36 +87,44 @@ export function DataTable<TData, TValue>({
     if (coinData)
         return (
             <div className="max-h-[100vh] overflow-y-hidden">
-                <div className="flex  justify-between items-center ">
-                    <Input
-                        placeholder="Filter crypto..."
-                        value={inputCoin}
-                        onChange={(event) => {
-                            setInputCoin(event.target.value);
-                        }}
-                        className="max-w-sm"
-                    />
+                <div className="flex  justify-between items-center pb-3">
+                    <div className="flex flex-wrap flex-1 items center">
+                        <Input
+                            placeholder="Filter crypto..."
+                            value={inputCoin}
+                            onChange={(event) => {
+                                setInputCoin(event.target.value);
+                            }}
+                            className="shrink max-w-[7.5rem] sm:max-w-[9rem] bg-[#3e3e3fff] text-white rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition"
+                        />
 
-                    <div>
-                        <CSVLink data={csvLink()}>fefefef</CSVLink>
+                        <CSVLink
+                            className="bg-[#1d1e21] text-sm sm:text-md text-white px-3 py-1 rounded-lg border-1 border-#3e3e3f hover:text-[#fbbf24] active:bg-[#fbbf24] active:text-[#1d1e21] transition ml-2 "
+                            data={csvLink()}
+                        >
+                            Download CVS
+                        </CSVLink>
                     </div>
 
                     <img
                         onClick={() => setOpen(false)}
-                        className="cross h-11"
+                        className="cross h-6"
                         src=".\img\cross.png"
                         alt=""
                     />
                 </div>
 
-                <div className="overflow-hidden rounded-md border max-h-[80vh] overflow-y-auto rounded-md bg-white p-4">
+                <div className="overflow-hidden rounded-md border max-h-[70vh] overflow-y-auto rounded-md bg-[#1d1e21] text-white font-semibold p-4">
                     <Table>
                         <TableHeader>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <TableRow key={headerGroup.id}>
                                     {headerGroup.headers.map((header) => {
                                         return (
-                                            <TableHead key={header.id}>
+                                            <TableHead
+                                                className="hover:text-[#fbbf24] transition"
+                                                key={header.id}
+                                            >
                                                 {header.isPlaceholder
                                                     ? null
                                                     : flexRender(

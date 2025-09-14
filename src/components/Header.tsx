@@ -64,7 +64,7 @@ function LiveSearch({
     const setOpen = useStore((state) => state.setOpen);
     const open = useStore((state) => state.open);
     return (
-        <Card className="w-[100%] absolute mt-2 rounded-xl shadow-lg border border-gray-200 bg-[#3e3e3fff] ">
+        <Card className="w-[100%] absolute p-3 mt-2 rounded-xl shadow-lg border border-gray-200 bg-[#3e3e3fff] ">
             {filterData.length > 0 ? (
                 <>
                     {filterData.slice(0, 5).map((coin) => (
@@ -74,7 +74,7 @@ function LiveSearch({
                                 setOpen(true);
                                 console.log(open);
                             }}
-                            className="flex"
+                            className="flex "
                         >
                             <img
                                 src={coin.image}

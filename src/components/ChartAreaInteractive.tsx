@@ -74,7 +74,7 @@ export function ChartAreaInteractive() {
         });
 
         return (
-            <Card className="pt-0">
+            <Card className="pt-0 border-[white]">
                 <CardHeader className="flex items-end flex-wrap-reverse gap-2 space-y-0 border-b border-[#3e3e3f] py-5 sm:flex-row">
                     <div className="grid flex text-yellow-400 font-semibold">
                         <Combobox />
@@ -173,6 +173,7 @@ export function ChartAreaInteractive() {
                                 cursor={{ stroke: "#fbbf24", strokeWidth: 1 }}
                                 content={
                                     <ChartTooltipContent
+                                        className="text-white"
                                         labelFormatter={(value) => {
                                             return new Date(
                                                 value
@@ -193,7 +194,10 @@ export function ChartAreaInteractive() {
                                 stroke="#fbbf24"
                                 stackId="a"
                             />
-                            <ChartLegend content={<ChartLegendContent />} />
+                            <ChartLegend
+                                className="text-white"
+                                content={<ChartLegendContent />}
+                            />
                         </AreaChart>
                     </ChartContainer>
                 </CardContent>

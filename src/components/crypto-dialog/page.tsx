@@ -18,7 +18,7 @@ export default function DemoPage() {
 
     if (open)
         return (
-            <div className="container mx-auto fixed inset-0 flex items-center justify-center bg-black/50">
+            <div className="mx-auto fixed inset-0 flex items-center p-3 justify-center bg-black/50">
                 <DataTable columns={columns} data={data} />
             </div>
         );
