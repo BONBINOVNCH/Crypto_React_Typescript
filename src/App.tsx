@@ -27,7 +27,7 @@ function App() {
                         <TableCom />
                     </section>
                 </div>
-                <div className="main_right">
+                <div className="main_right grow ml-4">
                     <section className="main_marketOverview">
                         <MarketOverview />
                         <MarketHighlight />
