@@ -24,7 +24,7 @@ export default function TableCom(): React.JSX.Element | undefined {
                             <h2 className="text-lg font-bold text-white">
                                 Market top
                             </h2>
-                            <p className="text-sm text-[#3e3e3f]">
+                            <p className="text-sm text-[#fbbf24]">
                                 5 best kryptos
                             </p>
                         </div>
