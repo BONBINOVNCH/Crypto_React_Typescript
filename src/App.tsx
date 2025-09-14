@@ -13,7 +13,7 @@ function App() {
         <div className="wrap relative m-4">
             <Header />
             <main className="main flex flex-wrap justify-between">
-                <div className="main_left">
+                <div className="main_left grow shrink">
                     <section className="main_toppers">
                         <h2 className="toppers_title sm:text-2xl font-bold pt-2 text-gray-800 dark:text-gray-100 border-[#fbbf24] border-t-1">
                             Toppers
@@ -27,7 +27,7 @@ function App() {
                         <TableCom />
                     </section>
                 </div>
-                <div className="main_right grow ml-4">
+                <div className="main_right grow shrink md:ml-4">
                     <section className="main_marketOverview">
                         <MarketOverview />
                         <MarketHighlight />
