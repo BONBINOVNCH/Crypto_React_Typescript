@@ -19,7 +19,7 @@ function Header(): React.JSX.Element | undefined {
                             className="header_logo h-10 mr-[10px]"
                             alt=""
                         />
-                        <h1 className="sm:text-3xl font-bold text-gray-800 dark:text-gray-100">
+                        <h1 className="sm:text-3xl font-bold text-white">
                             cryptoSite
                         </h1>
                     </div>
@@ -64,7 +64,7 @@ function LiveSearch({
     const setOpen = useStore((state) => state.setOpen);
     const open = useStore((state) => state.open);
     return (
-        <Card className="w-[100%] absolute p-3 mt-2 rounded-xl shadow-lg border border-gray-200 bg-[#3e3e3fff] ">
+        <Card className="w-[100%] z-1 absolute p-3 mt-2 rounded-xl shadow-lg border border-gray-200 bg-[#3e3e3fff] ">
             {filterData.length > 0 ? (
                 <>
                     {filterData.slice(0, 5).map((coin) => (

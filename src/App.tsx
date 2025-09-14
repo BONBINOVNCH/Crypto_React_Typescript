@@ -15,7 +15,7 @@ function App() {
             <main className="main flex flex-wrap justify-between">
                 <div className="main_left w-[auto] lg:w-[63%]">
                     <section className="main_toppers">
-                        <h2 className="toppers_title sm:text-2xl font-bold pt-2 text-gray-800 dark:text-gray-100 border-[#fbbf24] border-t-1">
+                        <h2 className="toppers_title sm:text-2xl font-bold pt-2 text-white  border-[#fbbf24] border-t-1">
                             Toppers
                         </h2>
                         <Toppers></Toppers>
