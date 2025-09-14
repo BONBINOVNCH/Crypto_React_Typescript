@@ -28,7 +28,7 @@ function App() {
                     </section>
                 </div>
                 <div className="main_right">
-                    <section className="main_marketOverview ">
+                    <section className="main_marketOverview">
                         <MarketOverview />
                         <MarketHighlight />
                     </section>
