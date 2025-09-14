@@ -81,7 +81,7 @@ function LiveSearch({
                                 alt=""
                                 className="w-6 h-6 mr-[7px]"
                             />
-                            <h2 className="text-sm font-medium text-gray-800 dark:text-gray-200">
+                            <h2 className="text-sm font-medium text-white">
                                 {coin.name}
                             </h2>
                         </div>
