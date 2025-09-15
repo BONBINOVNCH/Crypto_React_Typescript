@@ -70,7 +70,7 @@ export function Combobox() {
                         <ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[200px] p-0">
+                <PopoverContent className="w-[200px] p-0 text-yellow-400 bg-[#1d1e21]">
                     <Command>
                         <CommandInput placeholder="Search coin..." />
                         <CommandList>
@@ -78,6 +78,7 @@ export function Combobox() {
                             <CommandGroup>
                                 {newData.map((coin) => (
                                     <CommandItem
+                                        className="hover:bg-[#3e3e3f]"
                                         key={coin.value}
                                         value={coin.value}
                                         onSelect={(currentValue) => {
