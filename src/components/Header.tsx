@@ -7,6 +7,9 @@ function Header(): React.JSX.Element | undefined {
     const inputCoin = useStore((state) => state.inputCoin);
     const setInputCoin = useStore((state) => state.setInputCoin);
 
+    const openInput = useStore((state) => state.openInput);
+    const setOpenInput = useStore((state) => state.setOpenInput);
+
     const data = useDataCoins();
 
     if (data)
@@ -27,6 +30,7 @@ function Header(): React.JSX.Element | undefined {
                     <nav className="search_blcok relative">
                         <div className="flex flex-wrap w-full max-w-sm items-center justify-end gap-2">
                             <Input
+                                onClick={() => setOpenInput(true)}
                                 className="sm:w-[100%] bg-[#3e3e3fff] text-white w-[100%] rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition"
                                 onChange={(
                                     e: React.ChangeEvent<HTMLInputElement>
@@ -37,7 +41,7 @@ function Header(): React.JSX.Element | undefined {
                             />
                         </div>
 
-                        {inputCoin.length > 0 && (
+                        {inputCoin.length > 0 && openInput == true && (
                             <LiveSearch
                                 data={data}
                                 inputCoin={inputCoin}
@@ -63,6 +67,8 @@ function LiveSearch({
     });
     const setOpen = useStore((state) => state.setOpen);
     const open = useStore((state) => state.open);
+
+    const setOpenInput = useStore((state) => state.setOpenInput);
     return (
         <Card className="w-[100%] z-1 absolute p-3 mt-2 rounded-xl shadow-lg border border-gray-200 bg-[#3e3e3fff] ">
             {filterData.length > 0 ? (
@@ -72,6 +78,7 @@ function LiveSearch({
                             key={coin.id}
                             onClick={() => {
                                 setOpen(true);
+                                setOpenInput(false);
                                 console.log(open);
                             }}
                             className="flex "
@@ -88,7 +95,10 @@ function LiveSearch({
                     ))}
                     <button
                         className="w-full text-center mt-2 py-1 text-sm font-medium text-yellow-600 hover:underline"
-                        onClick={() => setOpen(true)}
+                        onClick={() => {
+                            setOpen(true);
+                            setOpenInput(false);
+                        }}
                     >
                         see all +{filterData.length}
                     </button>

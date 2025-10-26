@@ -18,6 +18,9 @@ type Store<T> = {
 
     open: boolean;
     setOpen: (open: boolean) => void;
+
+    openInput: boolean;
+    setOpenInput: (open: boolean) => void;
 };
 
 export const useStore = create<Store<Coin>>()((set) => ({
@@ -29,4 +32,7 @@ export const useStore = create<Store<Coin>>()((set) => ({
 
     open: false,
     setOpen: (open) => set({ open }),
+
+    openInput: false,
+    setOpenInput: (openInput) => set({ openInput }),
 }));
