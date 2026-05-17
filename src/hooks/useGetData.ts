@@ -19,6 +19,7 @@ function useGetData<T>(url: string): T | null {
                         accept: "application/json",
                         "x-cg-demo-api-key": keys,
                     },
+                    origin: "*",
                 };
 
                 const response: Response = await fetch(url, options);
